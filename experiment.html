@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="refresh" content="0; URL=https://script.google.com/macros/s/AKfycbxOCjQNvFGgZW9H8UoHBZDEnWC6DT4IwlBCdd_mqVR3iNkLfgyf/exec">
+	<script language="JavaScript">
+	var howMany = 1;
+	var page = new Array(howMany+1);
+
+	page[0]="https://script.google.com/macros/s/AKfycbxy5bLqCtihv-8H4ZR3PyePjJOnURBNoADKo6lRwJjQ6kg1S7TC/exec";
+	page[1]="https://gustavopaetzold.wordpress.com/";
+
+	function rndnumber(){
+		var randscript = -1;
+		while (randscript < 0 || randscript > howMany || isNaN(randscript)){
+			randscript = parseInt(Math.random()*(howMany+1));
+		}
+		return randscript;
+	}
+	quo = rndnumber();
+	quox = page[quo];
+	window.location=(quox);
+	</script>
+	<!--<meta http-equiv="refresh" content="0; URL=https://script.google.com/macros/s/AKfycbxy5bLqCtihv-8H4ZR3PyePjJOnURBNoADKo6lRwJjQ6kg1S7TC/exec">  -->
 </head>
 <body />
 </html>
