@@ -1,0 +1,139 @@
+<html>
+    <head>
+		<script>
+			function paintHTML(page) {
+				document.getElementById("mainframeid").src=page;
+			}
+		</script>
+        <style type="text/css">
+            html {height: 100%}
+            body {
+                height: 100%; 
+                margin: 0; 
+                text-align: center;
+				background-color: #efefef;
+				background-image: url("images/background.png");
+				background-repeat: repeat;
+            }
+            div#wrapper { 
+                background-color: #ffffff;
+                width: 999px;
+                margin: 0 auto;
+                height: 100%;
+                text-align: left;
+			    border-left:1px solid #cfcfcf;
+			    border-right:1px solid #cfcfcf;
+            }
+            div#content {
+                background-color: #ffffff;
+            }
+            div#centeredmenu {
+                background-color: #efefef;
+            }
+			#centeredmenu {
+			   float:left;
+			   width:100%;
+			   height:44px;
+			   background:#fff;
+			   border-bottom:1px solid #efefef;
+			   border-top:1px solid #efefef;
+			   overflow:hidden;
+			   position:relative;
+			}
+			#centeredmenu ul {
+			   clear:left;
+			   float:left;
+			   list-style:none;
+			   margin:0;
+			   padding:0;
+			   position:relative;
+			   left:50%;
+			   text-align:center;
+			}
+			#centeredmenu ul li {
+			   display:block;
+			   float:left;
+			   list-style:none;
+			   margin:0;
+			   padding:0;
+			   position:relative;
+			   right:50%;
+			   font-family: "Courier New", Courier, monospace;
+			   font-size:18px;
+			}
+			#aboutbt {
+			   display:block;
+			   margin:0 0 0 0px;
+			   padding:6px 88px;
+			   background:#ffffff;
+			   color:#000000;
+			   text-decoration:none;
+			   line-height:1.8em;
+			}
+			#downloadbt {
+			   display:block;
+			   margin:0 0 0 1px;
+			   padding:6px 88px;
+			   background:#ffffff;
+			   color:#000000;
+			   text-decoration:none;
+			   line-height:1.8em;
+			}
+			#licensebt {
+			   display:block;
+			   margin:0 0 0 1px;
+			   padding:6px 88px;
+			   background:#ffffff;
+			   color:#000000;
+			   text-decoration:none;
+			   line-height:1.8em;
+			}
+			#contactbt {
+			   display:block;
+			   margin:0 0 0 1px;
+			   padding:6px 88px;
+			   background:#ffffff;
+			   color:#000000;
+			   text-decoration:none;
+			   line-height:1.8em;
+			}
+			#centeredmenu ul li a:hover {
+			   background:#369;
+			   color:#fff;
+			}
+			#centeredmenu ul li a.active,
+			#centeredmenu ul li a.active:hover {
+			   color:#fff;
+			   background:#000;
+			   font-weight:bold;
+			}
+			#core {
+			   float:left;
+			   width:100%;
+			   background:#fff;
+			   position:relative;
+			}
+        </style>
+    </head>
+    <body background="background.jpg">
+        <div id="wrapper">
+            <div id="content">
+                <div style="height: 256px">
+					<img src="images/subimdb_logo.png" alt="Logo" style="margin-left: auto;margin-right: auto;display: block;">
+				</div>
+            </div>
+            <div id="centeredmenu">
+			   <ul>
+				  <li><a id="aboutbt" onclick="paintHTML('about.html')">About</a></li>
+				  <li><a id="downloadbt" onclick="paintHTML('download.html')">Download</a></li>
+				  <li><a id="licensebt" onclick="paintHTML('http://www.opensubtitles.org/en/disclaimer')">License</a></li>
+				  <li><a id="contactbt" onclick="paintHTML('contact.html')">Contact</a></li>
+			   </ul>
+			</div>
+            <div id="core">
+				<iframe id="mainframeid" name="mainframe" width="100%" style="height:100vh;border:none;" src="about.html">
+				</iframe>
+			</div>
+        </div>
+    </body>
+</html>
