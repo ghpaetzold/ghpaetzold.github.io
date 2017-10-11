@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script language="JavaScript">
+	var howMany = 0;
+	var page = new Array(howMany+1);
+
+	page[0]="https://script.google.com/macros/s/AKfycbyjObdpXYG4M5ifI-38PrGHHudpol813taM3IOF8XIGSBA9cniE/exec";
+
+	function rndnumber(){
+		var randscript = -1;
+		while (randscript < 0 || randscript > howMany || isNaN(randscript)){
+			randscript = parseInt(Math.random()*(howMany+1));
+		}
+		return randscript;
+	}
+	quo = rndnumber();
+	quox = page[quo];
+	window.location=(quox);
+	</script>
+	<!--<meta http-equiv="refresh" content="0; URL=https://script.google.com/macros/s/AKfycbx8OzTPueBPIDMVibIjnp8wPO08y_Mts9fmlXEk1HAvth-G17Y/exec">-->
+</head>
+<body />
+</html>
