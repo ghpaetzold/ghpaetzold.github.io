@@ -1,0 +1,5 @@
+Hershey left no heirs when he died in 1945 , giving most of his fortune to charity .
+Hershey died in 1945 and gave most of his fortune to charity .
+18-13 12-7 13-8 14-9 15-10 16-11 17-12 7-2 8-3 9-4 1-1 11-6
+(ROOT (S (NP (NNP Hershey)) (VP (VBD left) (NP (DT no) (NNS heirs)) (SBAR (WHADVP (WRB when)) (S (NP (PRP he)) (VP (VBD died) (PP (IN in) (NP (CD 1945))) (, ,) (S (VP (VBG giving) (NP (NP (JJS most)) (PP (IN of) (NP (PRP$ his) (NN fortune)))) (PP (TO to) (NP (NN charity))))))))) (. .)))
+(ROOT (S (NP (NNP Hershey)) (VP (VP (VBD died) (PP (IN in) (NP (CD 1945)))) (CC and) (VP (VBD gave) (NP (NP (JJS most)) (PP (IN of) (NP (PRP$ his) (NN fortune)))) (PP (TO to) (NP (NN charity))))) (. .)))
