@@ -465,31 +465,84 @@ It concatenates all sentences in the “N” side of 1-N and N-1 alignments.</p>
 </div>
 <div class="section" id="module-massalign.annotators">
 <span id="massalign-annotators"></span><h2>massalign.annotators<a class="headerlink" href="#module-massalign.annotators" title="Permalink to this headline">¶</a></h2>
-<p>This module contains functions for annotating transformation operations at the sentence level.</p>
 <dl class="class">
 <dt id="massalign.annotators.SentenceAnnotator">
 <em class="property">class </em><code class="descclassname">massalign.annotators.</code><code class="descname">SentenceAnnotator</code><a class="headerlink" href="#massalign.annotators.SentenceAnnotator" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="massalign.annotators.SentenceAnnotator.annotate_file">
-<code class="descname">annotate_file</code><span class="sig-paren">(</span><em>sents_file</em>, <em>aligns_file</em>, <em>parse_file</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.annotate_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Annotate all the sentences in sents_file using the word alignments in aligns_file.</p>
+<dd><p>Implements algorithms for annotating transformation operations between parallel sentences.</p>
+<dl class="method">
+<dt id="massalign.annotators.SentenceAnnotator.createConllFiles">
+<code class="descname">createConllFiles</code><span class="sig-paren">(</span><em>annot_file_src, annot_file_ref, annotations, include_clauseop=True, labels_to_print=['B-A', 'B-AC', 'B-D', 'B-DC', 'B-M', 'B-MC', 'B-R', 'B-RM', 'B-RW', 'B-RWM', 'I-A', 'I-AC', 'I-D', 'I-DC', 'I-M', 'I-MC', 'I-R', 'I-RM', 'I-RW', 'I-RWM']</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.createConllFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates files in conll format for the transformation annotations of given parallel sentences.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Parameters</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>annot_file_src</strong>: The file where to write the annotations for the source sentence.</li>
+<li><strong>annot_file_ref</strong>: The file where to write the annotations for the reference sentence.</li>
+<li><strong>annotations</strong>: A list of dictionaries containing the annotations for the corresponding source and reference sentences.</li>
+<li><strong>include_clauseop</strong>: Indicates whether to print labels corresponding to clause-level operations.</li>
+<li><strong>labels_to_print</strong>: Which transformation operation labels to print. By default, all are printed.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </dd></dl>
 
 <dl class="method">
-<dt id="massalign.annotators.SentenceAnnotator.annotate_sentence">
-<code class="descname">annotate_sentence</code><span class="sig-paren">(</span><em>src</em>, <em>ref</em>, <em>aligns</em>, <em>src_parse</em>, <em>ref_parse</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.annotate_sentence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Annotate all the simplification operations in the sentence pair src-ref.</p>
+<dt id="massalign.annotators.SentenceAnnotator.getSentenceAnnotations">
+<code class="descname">getSentenceAnnotations</code><span class="sig-paren">(</span><em>src</em>, <em>ref</em>, <em>aligns</em>, <em>src_parse</em>, <em>ref_parse</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.getSentenceAnnotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates the transformation operations between a pair of aligned sentences (source and reference).</p>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Parameters</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>src</strong>: A list of words corresponding to the tokenized source sentence.</li>
+<li><strong>ref</strong>: A list of words corresponding to the tokenized reference sentence.</li>
+<li><strong>aligns</strong>: A string containing the word alignments between source and reference, in Pharaoh format.</li>
+<li><strong>src_parse</strong>: A string containing the constituent parse tree of the source sentence.</li>
+<li><strong>ref_parse</strong>: A string containing the constituent parse tree of the reference sentence.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Output</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>sent_annots</strong>: A dictionary containing the token-level annotations for both source and reference sentences.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </dd></dl>
 
 <dl class="method">
-<dt id="massalign.annotators.SentenceAnnotator.create_conll_files">
-<code class="descname">create_conll_files</code><span class="sig-paren">(</span><em>annot_file_src, annot_file_ref, annotations, include_clauseop=True, labels_to_print=['B-A', 'B-AC', 'B-D', 'B-DC', 'B-M', 'B-MC', 'B-R', 'B-RM', 'B-RW', 'B-RWM', 'I-A', 'I-AC', 'I-D', 'I-DC', 'I-M', 'I-MC', 'I-R', 'I-RM', 'I-RW', 'I-RWM']</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.create_conll_files" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="massalign.annotators.SentenceAnnotator.dict2conll">
-<code class="descname">dict2conll</code><span class="sig-paren">(</span><em>sent_annots, include_clauseop=True, labels_to_print=['B-A', 'B-AC', 'B-D', 'B-DC', 'B-M', 'B-MC', 'B-R', 'B-RM', 'B-RW', 'B-RWM', 'I-A', 'I-AC', 'I-D', 'I-DC', 'I-M', 'I-MC', 'I-R', 'I-RM', 'I-RW', 'I-RWM']</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.dict2conll" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="massalign.annotators.SentenceAnnotator.getSentenceAnnotationsForFile">
+<code class="descname">getSentenceAnnotationsForFile</code><span class="sig-paren">(</span><em>sents_file</em>, <em>aligns_file</em>, <em>parse_file</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#massalign.annotators.SentenceAnnotator.getSentenceAnnotationsForFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Annotates all the parallel sentences in a given file. Each sentence pair appears in a separate line.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Parameters</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>sents_file</strong>: File containing the parallel sentences. Each line in the file contains a source-reference pair, separated by the character |||.</li>
+<li><strong>aligns_file</strong>: File containing the word alignments between each sentence pair. Each line contains the alignments in Pharaoh format.</li>
+<li><strong>parse_file</strong>: File containing the parse trees of the parallel sentences. Every two lines in the file corresponds to a sentence pair (the first is the source parse and the second the reference parse).</li>
+<li><strong>verbose</strong>: Indicates whether to print a message indicating the sentence being annotated or not.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Output</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>file_annots</strong>: A list of dictionaries, each of them containing the sentence pair id and the annotations for the corresponding source and reference sentences.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 
